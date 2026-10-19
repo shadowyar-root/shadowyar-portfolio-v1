@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata helps browsers render the page correctly on all screen sizes. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShadowYar's personal portfolio for web development, programming and Linux learning.">
+    <title>Skills // ShadowYar</title>
+    <!-- All pages share one stylesheet to keep the design consistent. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Shared navigation appears on every page. The menu button is controlled by app.js. -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a class="logo" href="index.html" aria-label="ShadowYar home">SHADOW<strong>YAR</strong><span>_</span></a>
+            <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul>
+                        <li><a class="" href="index.html">HOME</a></li>
+                        <li><a class="" href="about.html">ABOUT</a></li>
+                        <li><a class="active" href="skills.html" aria-current="page">SKILLS</a></li>
+                        <li><a class="" href="projects.html">PROJECTS</a></li>
+                        <li><a class="" href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Skills page presents current learning areas and self-assessed progress. -->
+        <main class="page">
+            <div class="wrap">
+                <header class="page-head">
+                    <p class="section-kicker">02 // CAPABILITIES</p>
+                    <h1 class="page-title">SKILL_MATRIX</h1>
+                </header>
+
+                <div class="skills">
+                    <article class="skill">
+                        <div class="icon" aria-hidden="true">&lt;/&gt;</div>
+                        <h2>HTML</h2>
+                        <p>Semantic structure, forms, tables, links, images and clean page architecture.</p>
+                        <div class="meter" role="img" aria-label="HTML progress: 75 percent"><span style="width: 75%"></span></div>
+                    </article>
+                    <article class="skill">
+                        <div class="icon" aria-hidden="true">#_</div>
+                        <h2>CSS</h2>
+                        <p>Responsive layouts, Flexbox, Grid, selectors, states, effects and UI styling.</p>
+                        <div class="meter" role="img" aria-label="CSS progress: 70 percent"><span style="width: 70%"></span></div>
+                    </article>
+                    <article class="skill">
+                        <div class="icon" aria-hidden="true">Py</div>
+                        <h2>PYTHON</h2>
+                        <p>Programming fundamentals, logic, conditionals and a growing automation foundation.</p>
+                        <div class="meter" role="img" aria-label="Python progress: 50 percent"><span style="width: 50%"></span></div>
+                    </article>
+                    <article class="skill">
+                        <div class="icon" aria-hidden="true">$_</div>
+                        <h2>LINUX</h2>
+                        <p>CLI, files, permissions, users, pipes, grep and practical Linux workflows.</p>
+                        <div class="meter" role="img" aria-label="Linux progress: 65 percent"><span style="width: 65%"></span></div>
+                    </article>
+                </div>
+
+                <!-- Language progress is a personal snapshot, not a formal test score. -->
+                <section class="card language-card" aria-labelledby="english-title">
+                    <p class="section-kicker">LANGUAGE MODULE</p>
+                    <h2 id="english-title">ENGLISH</h2>
+                    <p class="muted language-description">
+                        Actively improving vocabulary, grammar, listening, speaking and technical English.
+                    </p>
+                    <div class="lang">
+                        <strong>English</strong>
+                        <span>LEARNING / DEVELOPING</span>
+                        <div class="langbar" role="img" aria-label="English learning progress: 55 percent">
+                            <span style="width: 55%"></span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+    <!-- Shared footer keeps the site identity consistent across pages. -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>SHADOWYAR // DIGITAL PORTFOLIO</span>
+            <span>BUILD. LEARN. EVOLVE.</span>
+        </div>
+    </footer>
+
+    <!-- Keep JavaScript separate from HTML for easier maintenance. -->
+    <script src="app.js" defer></script>
+</body>
+</html>

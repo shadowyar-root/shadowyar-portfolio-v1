@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata helps browsers render the page correctly on all screen sizes. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShadowYar's personal portfolio for web development, programming and Linux learning.">
+    <title>About // ShadowYar</title>
+    <!-- All pages share one stylesheet to keep the design consistent. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Shared navigation appears on every page. The menu button is controlled by app.js. -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a class="logo" href="index.html" aria-label="ShadowYar home">SHADOW<strong>YAR</strong><span>_</span></a>
+            <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul>
+                        <li><a class="" href="index.html">HOME</a></li>
+                        <li><a class="active" href="about.html" aria-current="page">ABOUT</a></li>
+                        <li><a class="" href="skills.html">SKILLS</a></li>
+                        <li><a class="" href="projects.html">PROJECTS</a></li>
+                        <li><a class="" href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- About page: personal introduction and quick profile facts. -->
+        <main class="page">
+            <div class="wrap">
+                <header class="page-head">
+                    <p class="section-kicker">01 // PROFILE</p>
+                    <h1 class="page-title">ABOUT_ME</h1>
+                </header>
+
+                <div class="grid2">
+                    <article class="card">
+                        <p class="about">
+                            I'm <strong>ShadowYar</strong>, a student focused on programming, web
+                            development and Linux. I enjoy understanding technology from the user
+                            interface down to the command line. My current foundation is HTML, CSS,
+                            Python and Linux, while I continue developing toward professional-level
+                            software and cybersecurity skills.
+                        </p>
+                    </article>
+
+                    <!-- These facts summarize the profile without adding unsupported claims. -->
+                    <article class="card facts" aria-label="Profile facts">
+                        <div class="fact"><span>HANDLE</span><span>ShadowYar</span></div>
+                        <div class="fact"><span>FOCUS</span><span>Web / Programming</span></div>
+                        <div class="fact"><span>OS</span><span>Linux</span></div>
+                        <div class="fact"><span>LANGUAGE</span><span>English — Learning</span></div>
+                        <div class="fact"><span>GITHUB</span><span>shadowyar-root</span></div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+    <!-- Shared footer keeps the site identity consistent across pages. -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>SHADOWYAR // DIGITAL PORTFOLIO</span>
+            <span>BUILD. LEARN. EVOLVE.</span>
+        </div>
+    </footer>
+
+    <!-- Keep JavaScript separate from HTML for easier maintenance. -->
+    <script src="app.js" defer></script>
+</body>
+</html>

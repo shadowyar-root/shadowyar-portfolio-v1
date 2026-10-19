@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata helps browsers render the page correctly on all screen sizes. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShadowYar's personal portfolio for web development, programming and Linux learning.">
+    <title>Contact // ShadowYar</title>
+    <!-- All pages share one stylesheet to keep the design consistent. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Shared navigation appears on every page. The menu button is controlled by app.js. -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a class="logo" href="index.html" aria-label="ShadowYar home">SHADOW<strong>YAR</strong><span>_</span></a>
+            <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul>
+                        <li><a class="" href="index.html">HOME</a></li>
+                        <li><a class="" href="about.html">ABOUT</a></li>
+                        <li><a class="" href="skills.html">SKILLS</a></li>
+                        <li><a class="" href="projects.html">PROJECTS</a></li>
+                        <li><a class="active" href="contact.html" aria-current="page">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Contact page provides public links for professional communication. -->
+        <main class="page">
+            <div class="wrap">
+                <header class="page-head">
+                    <p class="section-kicker">04 // CONNECTION</p>
+                    <h1 class="page-title">CONTACT</h1>
+                </header>
+
+                <div class="contact">
+                    <section class="card">
+                        <p class="contact-label">GITHUB</p>
+                        <a href="https://github.com/shadowyar-root" target="_blank" rel="noopener noreferrer">
+                            github.com/shadowyar-root
+                        </a>
+                    </section>
+                    <section class="card">
+                        <p class="contact-label">EMAIL</p>
+                        <a href="mailto:mohammadyarjafar6@gmail.com">mohammadyarjafar6@gmail.com</a>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+    <!-- Shared footer keeps the site identity consistent across pages. -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>SHADOWYAR // DIGITAL PORTFOLIO</span>
+            <span>BUILD. LEARN. EVOLVE.</span>
+        </div>
+    </footer>
+
+    <!-- Keep JavaScript separate from HTML for easier maintenance. -->
+    <script src="app.js" defer></script>
+</body>
+</html>

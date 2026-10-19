@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Document metadata helps browsers render the page correctly on all screen sizes. -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ShadowYar's personal portfolio for web development, programming and Linux learning.">
+    <title>Projects // ShadowYar</title>
+    <!-- All pages share one stylesheet to keep the design consistent. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Shared navigation appears on every page. The menu button is controlled by app.js. -->
+    <header class="site-header">
+        <div class="wrap nav">
+            <a class="logo" href="index.html" aria-label="ShadowYar home">SHADOW<strong>YAR</strong><span>_</span></a>
+            <button class="menu" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="primary-navigation">
+                <span aria-hidden="true">☰</span>
+            </button>
+            <nav id="primary-navigation" aria-label="Main navigation">
+                <ul>
+                        <li><a class="" href="index.html">HOME</a></li>
+                        <li><a class="" href="about.html">ABOUT</a></li>
+                        <li><a class="" href="skills.html">SKILLS</a></li>
+                        <li><a class="active" href="projects.html" aria-current="page">PROJECTS</a></li>
+                        <li><a class="" href="contact.html">CONTACT</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+        <!-- Projects page lists selected work and the technologies associated with it. -->
+        <main class="page">
+            <div class="wrap">
+                <header class="page-head">
+                    <p class="section-kicker">03 // BUILD LOG</p>
+                    <h1 class="page-title">PROJECTS</h1>
+                </header>
+
+                <div class="projects">
+                    <article class="project">
+                        <p class="num">PROJECT_001</p>
+                        <h2>LONG-RUN STOPWATCH</h2>
+                        <p>A web stopwatch concept designed for long-running timing sessions with a custom interface.</p>
+                        <div class="tags" aria-label="Technologies">
+                            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JAVASCRIPT</span>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <p class="num">PROJECT_002</p>
+                        <h2>LINUX LAB</h2>
+                        <p>A personal collection of Linux command-line practice, notes, experiments and system-learning exercises.</p>
+                        <div class="tags" aria-label="Technologies">
+                            <span class="tag">LINUX</span><span class="tag">BASH</span><span class="tag">CLI</span>
+                        </div>
+                    </article>
+                    <article class="project">
+                        <p class="num">PROJECT_003</p>
+                        <h2>PORTFOLIO v2</h2>
+                        <p>This multi-page HUD portfolio, built with a shared stylesheet and independent HTML pages.</p>
+                        <div class="tags" aria-label="Technologies">
+                            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">RESPONSIVE</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </main>
+
+    <!-- Shared footer keeps the site identity consistent across pages. -->
+    <footer class="site-footer">
+        <div class="wrap">
+            <span>SHADOWYAR // DIGITAL PORTFOLIO</span>
+            <span>BUILD. LEARN. EVOLVE.</span>
+        </div>
+    </footer>
+
+    <!-- Keep JavaScript separate from HTML for easier maintenance. -->
+    <script src="app.js" defer></script>
+</body>
+</html>

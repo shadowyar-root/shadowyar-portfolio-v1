@@ -1,0 +1,627 @@
+/* ==========================================================================
+   ShadowYar Portfolio — Shared Stylesheet
+   Organize styles by design tokens, global rules, page components, and breakpoints.
+   ========================================================================== */
+
+/* 1. Design tokens: update these values to adjust the site's visual theme. */
+:root {
+    --bg: #020509;
+    --bg-secondary: #071016;
+    --panel: rgba(8, 17, 23, 0.78);
+    --cyan: #00eaff;
+    --green: #00ff9d;
+    --purple: #8b5cf6;
+    --text: #e8ffff;
+    --muted: #78969b;
+    --line: rgba(0, 234, 255, 0.16);
+    --glow: 0 0 28px rgba(0, 234, 255, 0.18);
+    --content-width: 1180px;
+}
+
+/* 2. Reset and global page defaults. */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+    background: radial-gradient(circle at 70% 10%, rgba(0, 234, 255, 0.08), transparent 25%), var(--bg);
+    color: var(--text);
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* A subtle scan-line overlay adds texture without blocking interaction. */
+body::before {
+    position: fixed;
+    z-index: 99;
+    pointer-events: none;
+    inset: 0;
+    background: linear-gradient(rgba(255, 255, 255, 0.015) 50%, transparent 50%);
+    background-size: 100% 4px;
+    content: "";
+    opacity: 0.25;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+.wrap {
+    width: min(var(--content-width), 92%);
+    margin-inline: auto;
+}
+
+/* 3. Shared header, logo, navigation, and mobile menu button. */
+.site-header {
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    width: 100%;
+    border-bottom: 1px solid var(--line);
+    background: rgba(2, 5, 9, 0.88);
+    backdrop-filter: blur(18px);
+}
+
+.nav {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font-size: 1.1rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+}
+
+.logo strong {
+    color: var(--cyan);
+}
+
+.logo span {
+    color: var(--green);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+nav a {
+    color: var(--muted);
+    font-size: 0.75rem;
+    transition: color 0.2s, text-shadow 0.2s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--cyan);
+    text-shadow: 0 0 12px var(--cyan);
+}
+
+.menu {
+    display: none;
+    border: 0;
+    background: transparent;
+    color: var(--cyan);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.menu:focus-visible,
+a:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* 4. Home page hero, background grid, decorative orb, and introductory text. */
+.hero {
+    position: relative;
+    display: grid;
+    min-height: 100vh;
+    place-items: center;
+    overflow: hidden;
+    padding-top: 76px;
+}
+
+.grid {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 55px 55px;
+    mask-image: linear-gradient(#000, transparent 85%);
+    opacity: 0.35;
+}
+
+.orb {
+    position: absolute;
+    top: 12%;
+    right: -170px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid rgba(0, 234, 255, 0.12);
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(0, 234, 255, 0.05), inset 0 0 70px rgba(139, 92, 246, 0.04);
+}
+
+.hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.kicker,
+.section-kicker {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.kicker {
+    margin-bottom: 18px;
+    letter-spacing: 3px;
+}
+
+h1 {
+    margin-bottom: 25px;
+    font-size: clamp(3.4rem, 8vw, 7.2rem);
+    letter-spacing: -6px;
+    line-height: 0.86;
+}
+
+.hero h1 span {
+    color: var(--cyan);
+    text-shadow: 0 0 35px rgba(0, 234, 255, 0.25);
+}
+
+.subtitle {
+    margin-bottom: 18px;
+    color: #b4d2d5;
+    font-family: monospace;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.lead {
+    max-width: 650px;
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+/* Shared button styling for the hero calls to action. */
+.btn {
+    padding: 12px 18px;
+    border: 1px solid var(--cyan);
+    background: rgba(0, 234, 255, 0.04);
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    background: var(--cyan);
+    color: #001014;
+    box-shadow: 0 0 25px rgba(0, 234, 255, 0.35);
+}
+
+.btn.alt {
+    border-color: var(--green);
+    color: var(--green);
+}
+
+.btn.alt:hover {
+    background: var(--green);
+    color: #00130d;
+}
+
+/* Profile image frame and its corner accents. */
+.avatar {
+    position: relative;
+    width: min(360px, 80vw);
+    aspect-ratio: 1;
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, rgba(0, 234, 255, 0.08), rgba(139, 92, 246, 0.05));
+    box-shadow: var(--glow);
+}
+
+.avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.9) contrast(1.05);
+}
+
+.avatar::before,
+.avatar::after {
+    position: absolute;
+    width: 45px;
+    height: 45px;
+    border: solid var(--cyan);
+    content: "";
+}
+
+.avatar::before {
+    top: -1px;
+    left: -1px;
+    border-width: 2px 0 0 2px;
+}
+
+.avatar::after {
+    right: -1px;
+    bottom: -1px;
+    border-width: 0 2px 2px 0;
+}
+
+.badge {
+    position: absolute;
+    bottom: 22px;
+    left: -35px;
+    padding: 12px 15px;
+    border: 1px solid var(--line);
+    background: #050c11;
+    color: var(--green);
+    font-family: monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+/* 5. Shared page layout and section headings used by inner pages. */
+.page {
+    min-height: 100vh;
+    padding-top: 150px;
+    padding-bottom: 80px;
+}
+
+.page-head {
+    margin-bottom: 50px;
+}
+
+.section-kicker {
+    margin-bottom: 8px;
+    font-size: 0.7rem;
+}
+
+.page-title {
+    margin-bottom: 0;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    letter-spacing: -2px;
+}
+
+.muted,
+.about {
+    color: var(--muted);
+}
+
+/* 6. Reusable cards and the two-column about page. */
+.grid2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.card {
+    position: relative;
+    padding: 28px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+    box-shadow: var(--glow);
+}
+
+.card::before {
+    position: absolute;
+    top: -1px;
+    left: 25px;
+    width: 35px;
+    height: 2px;
+    background: var(--cyan);
+    content: "";
+}
+
+.about {
+    line-height: 1.9;
+}
+
+.facts {
+    display: grid;
+    gap: 13px;
+}
+
+.fact {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px dashed var(--line);
+    font-family: monospace;
+    font-size: 0.75rem;
+    font-weight: 700;
+}
+
+.fact span:last-child {
+    color: var(--cyan);
+    text-align: right;
+}
+
+/* 7. Skills cards and progress indicators. */
+.skills {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.skill {
+    padding: 24px;
+    border: 1px solid var(--line);
+    background: linear-gradient(145deg, rgba(0, 234, 255, 0.035), transparent);
+    transition: transform 0.25s, border-color 0.25s;
+}
+
+.skill:hover {
+    transform: translateY(-6px);
+    border-color: var(--cyan);
+}
+
+.icon {
+    margin-bottom: 18px;
+    color: var(--cyan);
+    font-family: monospace;
+    font-size: 1.8rem;
+    font-weight: 900;
+}
+
+.skill h2 {
+    margin-bottom: 9px;
+    font-size: 1.15rem;
+    letter-spacing: 0;
+}
+
+.skill p {
+    color: var(--muted);
+    font-size: 0.78rem;
+    line-height: 1.7;
+}
+
+.meter,
+.langbar {
+    overflow: hidden;
+    background: #102329;
+}
+
+.meter {
+    height: 3px;
+    margin-top: 20px;
+}
+
+.meter span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--cyan), var(--green));
+}
+
+.language-card {
+    margin-top: 22px;
+}
+
+.language-card h2 {
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.language-description {
+    font-size: 0.8rem;
+}
+
+.lang {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: center;
+    margin: 22px 0;
+}
+
+.lang strong {
+    font-size: 0.85rem;
+}
+
+.lang > span {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.langbar {
+    grid-column: 1 / -1;
+    height: 5px;
+}
+
+.langbar span {
+    display: block;
+    height: 100%;
+    background: linear-gradient(90deg, var(--purple), var(--cyan));
+}
+
+/* 8. Project cards and technology labels. */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.project {
+    min-height: 230px;
+    padding: 25px;
+    border: 1px solid var(--line);
+    background: var(--panel);
+}
+
+.num {
+    color: var(--green);
+    font-family: monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.project h2 {
+    margin: 22px 0 10px;
+    color: var(--cyan);
+    font-size: 1.15rem;
+    letter-spacing: 0;
+}
+
+.project p:not(.num) {
+    color: var(--muted);
+    font-size: 0.8rem;
+    line-height: 1.75;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 18px;
+}
+
+.tag {
+    padding: 5px 8px;
+    border: 1px solid var(--line);
+    color: #8fb2b7;
+    font-family: monospace;
+    font-size: 0.62rem;
+    font-weight: 600;
+}
+
+/* 9. Contact cards and footer shared by every page. */
+.contact {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.contact a {
+    overflow-wrap: anywhere;
+    color: var(--cyan);
+}
+
+.contact-label {
+    margin-bottom: 9px;
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 0.65rem;
+    font-weight: 700;
+}
+
+.site-footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    color: var(--muted);
+    font-family: monospace;
+    font-size: 0.65rem;
+    font-weight: 600;
+}
+
+.site-footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+/* 10. Tablet and mobile layouts. */
+@media (max-width: 850px) {
+    /* Expand the navigation into a dropdown controlled by the menu button. */
+    nav ul {
+        position: absolute;
+        top: 76px;
+        left: 0;
+        display: none;
+        width: 100%;
+        padding: 20px;
+        background: #03080c;
+        flex-direction: column;
+    }
+
+    .nav.open nav ul {
+        display: flex;
+    }
+
+    .menu {
+        display: block;
+    }
+
+    .hero-grid,
+    .grid2 {
+        grid-template-columns: 1fr;
+    }
+
+    .hero {
+        padding: 120px 0 80px;
+    }
+
+    .avatar {
+        margin-inline: auto;
+    }
+
+    .skills {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .projects {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 500px) {
+    .skills,
+    .contact {
+        grid-template-columns: 1fr;
+    }
+
+    h1 {
+        letter-spacing: -3px;
+    }
+
+    .badge {
+        left: 5px;
+    }
+
+    .site-footer .wrap {
+        flex-direction: column;
+        line-height: 2;
+    }
+
+    .fact {
+        flex-wrap: wrap;
+    }
+}

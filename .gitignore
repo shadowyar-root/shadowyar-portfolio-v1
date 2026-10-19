@@ -1,0 +1,9 @@
+# Operating-system and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local environment and secret files (do not commit credentials)
+.env
+.env.*
+!.env.example
